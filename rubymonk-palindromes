@@ -1,0 +1,8 @@
+def palindrome?(sentence)
+  
+  new_sentence = sentence.downcase
+  no_spaces = new_sentence.gsub(/\s+/, "")
+  reverse_sentence = no_spaces.reverse
+  return reverse_sentence == no_spaces
+  
+end
