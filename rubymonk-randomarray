@@ -1,0 +1,14 @@
+def random_select(array, n)
+  
+  array_index = array.length - 1
+  num_to_return = n
+  returned_array = []
+  
+  while num_to_return > 0
+    returned_array << array[rand(array_index)]
+    num_to_return -= 1
+  end 
+  
+  return returned_array
+ 
+end
