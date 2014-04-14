@@ -1,0 +1,13 @@
+def non_duplicated_values(values)
+  
+  non_dupes = []
+  values.sort!
+  values.each do |i|
+    if (i != values[values.index(i) - 1]) && (i != values[values.index(i) + 1])
+      non_dupes << i
+    end
+  end
+    
+   return non_dupes
+  
+end
