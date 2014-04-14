@@ -1,0 +1,17 @@
+def array_of_fixnums?(array)
+  
+  fixnum_Booleans = []
+  
+  array.each do |i|
+    begin
+      if i.integer? == false
+        return false
+      end
+    rescue NoMethodError
+      return false
+    end
+  end
+  
+  return true
+  
+end
