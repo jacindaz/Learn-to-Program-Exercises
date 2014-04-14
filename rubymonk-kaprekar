@@ -1,0 +1,23 @@
+def kaprekar?(k)
+  
+  k_len = k.to_s.length        #convert to string + find len of k
+  
+  k_squared = k * k            
+  k_toStr = k_squared.to_s                 #to_s so we can index
+  k_sq_len = k_toStr.length
+  #puts k_sq_len
+  
+  #grabs right part of k squared--------------------------------
+  k_right = k_toStr.slice(-k_len, k_len)
+  #puts k_right
+  
+  #grabs left part of k squared--------------------------------
+  k_left = k_toStr.slice(0,k_sq_len - k_len)
+  #puts k_left
+  
+  k_RightLeft_sum = k_right.to_i + k_left.to_i
+  #puts k_RightLeft_sum
+  
+  return k_RightLeft_sum == k
+  
+end
