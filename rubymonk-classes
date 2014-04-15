@@ -1,0 +1,37 @@
+=begin 
+  Ruby Monk - Enough Contract? problem
+  https://rubymonk.com/learning/books/1-ruby-primer/problems/152-color-contrast
+  Monday, April 14, 2014
+=end
+
+
+class Color
+  attr_reader :r, :g, :b
+  def initialize(r, g, b)
+    @r = r
+    @g = g
+    @b = b
+  end
+
+  def brightness_index
+    ((299 * @r) + (587 * @g) + (114 * @b)) / 1000
+  end
+
+  def brightness_difference(another_color)
+    (brightness_index - another_color.brightness_index).abs
+  end
+
+  def hue_difference(another_color)
+    r_value = another_color.r - @r
+    g_value = another_color.g - @g
+    b_value = another_color.b - @b
+    r_value.abs + g_value.abs + b_value.abs
+  end
+
+  def enough_contrast?(another_color)
+    brightness = brightness_difference(another_color) > 125
+    hue = hue_difference(another_color) > 500
+    return (brightness and hue)
+  end
+
+end
