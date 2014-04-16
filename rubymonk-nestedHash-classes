@@ -1,0 +1,44 @@
+class Restaurant
+
+  def initialize(menu)
+    @menu = menu
+    #puts nil, "The menu is #{@menu}"
+    
+    #Pulling out the cost of rice and noodles from the menu
+    @rice_cost = @menu[:rice]
+    @noodles_cost = @menu[:noodles]
+    #puts "Rice: #{@rice_cost}, Noodles: #{@noodles_cost}",nil
+
+  end
+
+  def cost(*orders)
+
+    puts "Order: #{orders}"
+    @total_order = 0
+
+    #loop through 1 or more orders------------------------------------------
+    orders.each do |order|
+    
+      #loop through each Hash order-----------------------------------------
+      order.each do | key_food, value_quantity|
+        #puts "Order inner - food: #{key_food}, quantity: #{value_quantity}"
+          
+        #multiply correct price of food item, and add to total---------------
+        if key_food == :rice
+          #puts "if key_food: #{key_food}"
+          @total_order += value_quantity * @rice_cost
+        elsif key_food == :noodles
+          #puts "else key_food: #{key_food}"
+          @total_order += value_quantity * @noodles_cost
+        else
+          #puts "Error! You shouldn't have reached the else statement."
+        end
+        #puts "Did the if statement work? Total: #{@total_order}", nil
+
+      end   #end inner orders (key_food, value_quantity) array------------
+    end     #end orders array---------------------------------------------
+    return @total_order
+  end #end cost(*orders) method
+
+
+end  #end Restaurant class
